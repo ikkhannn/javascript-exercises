@@ -1,5 +1,30 @@
 window.onload = function () {
 
+    //////----------------JQUERY WAY --------------------/////
+
+
+    $.get("data/tweets.json").then(function(tweets){
+        console.log(tweets);
+        return $.get("data/friends.json").then(function(friends){
+                console.log(friends);
+                return $.get("data/videos.json").then(function(videos){
+                    console.log(videos);
+                }).catch(function(error){
+                    console.log(error);
+                }).catch(function(error){
+                    console.log(error);
+                }).catch(function(error){
+                    console.log(error);
+                });
+        })
+    });
+
+
+
+
+
+    ////----------------- javascript way----------.////
+    /*
     function get(url) {
 
         return new Promise(function (resolve, reject) {
@@ -33,6 +58,6 @@ window.onload = function () {
     }).catch(function (error) {
         console.log(error);
     });
-
+*/
 
 }
